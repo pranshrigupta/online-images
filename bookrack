@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Rack</title>
+  <style>
+    body {
+      background: #f8f3eb;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .rack {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      background: #d4b48c;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    .rack::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background: #a07c4f;
+      border-radius: 0 0 12px 12px;
+    }
+
+    .book {
+      width: 120px;
+      height: 180px;
+      perspective: 600px;
+      transition: transform 0.3s ease;
+    }
+
+    .book img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease;
+    }
+
+    .book:hover img {
+      transform: rotateY(-15deg) translateY(-5px) scale(1.05);
+    }
+
+    /* Optional floating animation */
+    .book {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .book:nth-child(2) { animation-delay: 0.5s; }
+    .book:nth-child(3) { animation-delay: 1s; }
+    .book:nth-child(4) { animation-delay: 1.5s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="rack">
+    <div class="book"><img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1687600746i/180357146.jpg" alt="Book 1"></div>
+    <div class="book"><img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400891575i/18847936.jpg" alt="Book 2"></div>
+    <div class="book"><img src="https://www.hachettebookgroup.com/wp-content/uploads/2017/06/HBGAuthors_Malcolm-Gladwell_Tipping-Point_Paperback.jpg" alt="Book 3"></div>
+    <div class="book"><img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1597695938l/53438824.jpg" alt="Book 4"></div>
+  </div>
+</body>
+</html>
